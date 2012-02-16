@@ -9,6 +9,7 @@
           <div>
             <img src="<%= currentUser.picture %>" alt="<%= currentUser.name %>">
             <%= currentUser.name %> |
+            <a href="#" id="friends-link">Ver amigos</a> |
             <a href="#" id="fb-logout">Sair</a>
           </div>
         <% else if currentUser?: %>
@@ -23,4 +24,6 @@
   </div>
 </div>
 
-<h1>Users</h1>
+<div class="container" >
+  <div id="friends-list"></div>
+</div>

@@ -1,0 +1,20 @@
+<div class="friends">
+  <header class="jumbotron subhead">
+    <h1>Meus Amigos</h1>
+  </header>
+
+  <section>
+    <ul class="thumbnails" >
+      <% for friend in @friends.data: %>
+        <li class="span2">
+          <a href="<%= friend.link %>" target="_blank">
+            <div class="thumbnail">
+              <img src="<%= friend.picture %>" alt="<%= currentUser.name %>">
+              <h5><%= friend.name %></h5>
+            </div>
+          </a>
+       </li>
+      <% end %>
+    </ul>
+  </section>
+</div>
