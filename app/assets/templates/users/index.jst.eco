@@ -1,0 +1,4 @@
+<h1>Users</h1>
+
+<div class="fb-login-button" data-size="xlarge" data-scope="email, offline_access">Conectar</div>
+<a href="#" id="fb-logout">Sair</a>
