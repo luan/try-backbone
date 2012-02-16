@@ -1,0 +1,23 @@
+.float-right {
+  float: right;
+}
+
+.brand > span {
+  color: #d6a255;
+}
+
+.navbar .container {
+  height: 40px;
+  color: #d7d7d7;
+  div {
+    img {
+      float: left;
+      border: 2px solid white;
+      height: 32px;
+      margin: 2px;
+      margin-right: 15px;
+    }
+    line-height: 40px;
+    margin: auto;
+  }
+}

@@ -3,10 +3,17 @@ class TryBackbone.Views.UsersIndex extends Backbone.View
 
   events:
     'click #fb-logout': 'logoutFB'
+    'userStatusChanged': 'userStatusChanged'
 
-  logoutFB: ->
+  userStatusChanged: (event, currentUser) =>
+    console.log currentUser
+    @render()
+
+  logoutFB: (event) =>
+    event.preventDefault()
     FB.logout()
 
   render: ->
     $(@el).html @template()
+    FB.XFBML.parse() if FB?
     this  

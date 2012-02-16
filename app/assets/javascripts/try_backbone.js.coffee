@@ -1,21 +1,22 @@
+window.currentUser = undefined
+
 window.TryBackbone =
   Models: {}
   Collections: {}
   Views: {}
   Routers: {}
-  currentUser: null
   updateUser: (response) ->
     if response.status is 'connected'
-        uid = response.authResponse.userID
-        accessToken = response.authResponse.accessToken
-        console.log
-          facebook:
-            uid: uid
-            token: accessToken
-      else if response.status is 'not_authorized'
-        console.log 'logged in, not authorized'
-      else
-        console.log 'not logged in'
+        FB.api '/me', (user) ->
+          window.currentUser = user
+          
+          FB.api '/me/picture', (path) ->
+            window.currentUser.picture = path
+            $.event.trigger 'userStatusChanged', window.currentUser
+          window.currentUser.accessToken = response.authResponse.accessToken
+    else
+      window.currentUser = false
+      $.event.trigger 'userStatusChanged', window.currentUser
 
   init: ->
     new TryBackbone.Routers.Users

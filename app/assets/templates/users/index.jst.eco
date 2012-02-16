@@ -1,4 +1,26 @@
-<h1>Users</h1>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">
+        <span>Try</span>Backbone<span>.js</span>
+      </a>
+      <div class="float-right">
+        <% if currentUser: %>
+          <div>
+            <img src="<%= currentUser.picture %>" alt="<%= currentUser.name %>">
+            <%= currentUser.name %> |
+            <a href="#" id="fb-logout">Sair</a>
+          </div>
+        <% else if currentUser?: %>
+          <div class="fb-login-button" data-size="xlarge" data-scope="email, offline_access">Conectar</div>
+        <% else: %>
+          <div>
+            Conectando...
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="fb-login-button" data-size="xlarge" data-scope="email, offline_access">Conectar</div>
-<a href="#" id="fb-logout">Sair</a>
+<h1>Users</h1>
